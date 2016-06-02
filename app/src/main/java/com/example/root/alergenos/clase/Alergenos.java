@@ -9,7 +9,7 @@ public class Alergenos {
 
     public String id;
     public String nombre;
-    public ImageView img;
+    public int img;
 
     public Alergenos(String nombre) {
         this.nombre = nombre;
@@ -18,7 +18,11 @@ public class Alergenos {
     public Alergenos() {
     }
 
-    public Alergenos(String nombre, String id, ImageView img) {
+    public Alergenos(int img) {
+        this.img = img;
+    }
+
+    public Alergenos(String nombre, String id, int img) {
         this.nombre = nombre;
         this.id = id;
         this.img = img;
@@ -40,11 +44,11 @@ public class Alergenos {
         this.nombre = nombre;
     }
 
-    public ImageView getImg() {
+    public int getImg() {
         return img;
     }
 
-    public void setImg(ImageView img) {
+    public void setImg(int img) {
         this.img = img;
     }
 }

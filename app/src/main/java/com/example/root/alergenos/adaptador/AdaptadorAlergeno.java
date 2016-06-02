@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,11 +22,12 @@ public class AdaptadorAlergeno extends BaseAdapter{
 
     private Context context;
     private List<Alergenos> alergenosList;
+    private ArrayList<Integer> listImages = new ArrayList<>();
     Alergenos mAlergenos;
 
-    public AdaptadorAlergeno(Context context, List<Alergenos> cartaList){
+    public AdaptadorAlergeno(Context context, List<Alergenos> alergenosList){
         this.context = context;
-        this.alergenosList = cartaList;
+        this.alergenosList = alergenosList;
     }
 
 
@@ -69,7 +71,7 @@ public class AdaptadorAlergeno extends BaseAdapter{
 
         mAlergenos = (Alergenos) getItem(position);
 
-          //holder.imgAlergenos.setImageResource();
+          holder.imgAlergenos.setImageResource(mAlergenos.getImg());
           holder.nombreAlergeno.setText(mAlergenos.getNombre());
         return convertView;
     }
