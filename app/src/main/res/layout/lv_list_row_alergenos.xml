@@ -12,6 +12,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvAlergeno"/>
+            android:id="@+id/tvAlergeno"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imAlergeno"
+            android:src="@mipmap/ic_alergenos"
+            />
 
 </LinearLayout>

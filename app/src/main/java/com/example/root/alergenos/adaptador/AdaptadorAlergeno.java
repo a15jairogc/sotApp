@@ -61,7 +61,7 @@ public class AdaptadorAlergeno extends BaseAdapter{
             convertView = inflater.inflate(R.layout.lv_list_row_alergenos,parent,false);
             holder = new ViewHolder();
 
-            //holder.imgAlergenos = (ImageView) convertView.findViewById(R.id.imgAlergeno);
+            holder.imgAlergenos = (ImageView) convertView.findViewById(R.id.imAlergeno);
             holder.nombreAlergeno = (TextView) convertView.findViewById(R.id.tvAlergeno);
             convertView.setTag(holder);
 
@@ -69,7 +69,7 @@ public class AdaptadorAlergeno extends BaseAdapter{
 
         mAlergenos = (Alergenos) getItem(position);
 
-//        holder.imgAlergenos.setImageResource();
+          //holder.imgAlergenos.setImageResource();
           holder.nombreAlergeno.setText(mAlergenos.getNombre());
         return convertView;
     }

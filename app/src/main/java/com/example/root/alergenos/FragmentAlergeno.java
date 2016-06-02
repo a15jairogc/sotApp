@@ -43,6 +43,22 @@ public class FragmentAlergeno extends Fragment{
         alergenosArrayList.add(new Alergenos("PAco"));
         alergenosArrayList.add(new Alergenos("PAco"));
         alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
+        alergenosArrayList.add(new Alergenos("PAco"));
 
         adaptadorAlergeno = new AdaptadorAlergeno(mainActivity,alergenosArrayList);
         listViewAlergeno.setAdapter(adaptadorAlergeno);
