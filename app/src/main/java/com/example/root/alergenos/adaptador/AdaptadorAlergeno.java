@@ -1,6 +1,7 @@
 package com.example.root.alergenos.adaptador;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class AdaptadorAlergeno extends BaseAdapter{
 
     private static class ViewHolder{
         private ImageView imgAlergenos;
+        private TextView nombreAlergeno;
 
     }
 
@@ -56,19 +58,19 @@ public class AdaptadorAlergeno extends BaseAdapter{
 
         if(convertView==null){
 
-            convertView = inflater.inflate(R.layout.lv_list_row_directiva,parent,false);
+            convertView = inflater.inflate(R.layout.lv_list_row_alergenos,parent,false);
             holder = new ViewHolder();
 
-            holder.tvApellidosD = (TextView) convertView.findViewById(R.id.tvApellidosD_Lvrow);
-
+            //holder.imgAlergenos = (ImageView) convertView.findViewById(R.id.imgAlergeno);
+            holder.nombreAlergeno = (TextView) convertView.findViewById(R.id.tvAlergeno);
             convertView.setTag(holder);
 
         }else{holder = (ViewHolder) convertView.getTag();}
 
         mAlergenos = (Alergenos) getItem(position);
 
-        holder.imgAlergenos.setImageDrawable(mAlergenos.getImg());
-
+//        holder.imgAlergenos.setImageResource();
+          holder.nombreAlergeno.setText(mAlergenos.getNombre());
         return convertView;
     }
 
