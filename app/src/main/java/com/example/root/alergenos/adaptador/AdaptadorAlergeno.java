@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.R;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,20 +65,24 @@ public class AdaptadorAlergeno extends BaseAdapter{
             convertView = inflater.inflate(R.layout.lv_list_row_alergenos,parent,false);
             holder = new ViewHolder();
 
-            holder.imgAlergenos = (ImageView) convertView.findViewById(R.id.imAlergeno);
             holder.nombreAlergeno = (TextView) convertView.findViewById(R.id.tvAlergeno);
+            holder.imgAlergenos = (ImageView) convertView.findViewById(R.id.imAlergeno);
+
             convertView.setTag(holder);
 
-        }else{holder = (ViewHolder) convertView.getTag();}
+
+
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         mAlergenos = (Alergenos) getItem(position);
 
-          holder.imgAlergenos.setImageResource(mAlergenos.getImg());
-          holder.nombreAlergeno.setText(mAlergenos.getNombre());
+        holder.nombreAlergeno.setText(mAlergenos.getNombre());
+        holder.imgAlergenos.setImageResource(mAlergenos.getImg());
+
         return convertView;
     }
-
-
 
 
 }

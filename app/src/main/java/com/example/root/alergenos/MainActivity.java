@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
     }
 
     @Override
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_alergenos) {
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
-            goToFragCarta();
+            goToFragAlergenos();
         } else if (id == R.id.nav_localizacion) {
 
         } else if (id == R.id.nav_sobre) {
@@ -119,17 +120,18 @@ public class MainActivity extends AppCompatActivity
         ft.commit();
     }
 
-    public void goToFragCarta(){
+    public void goToFragAlergenos(){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.addToBackStack("club");
+        ft.addToBackStack("alergenos");
         ft.replace(R.id.fragment_container,new FragmentAlergeno(), FragmentAlergeno.TAG);
         ft.commit();
     }
-    public void goToFragMenuPlantilla(){
 
-    }
-    public void goToFragMenuPartidos(){
-
+    public void goToFragAlergenosDesc(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.addToBackStack("alergenos");
+        ft.replace(R.id.fragment_container,new FragmentDescAlergenos(), FragmentAlergeno.TAG);
+        ft.commit();
     }
     public void goToFragMenuEntrenos(){
 

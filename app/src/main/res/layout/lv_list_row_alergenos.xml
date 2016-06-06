@@ -9,19 +9,21 @@
         <!--android:id="@+id/imgAlergeno"-->
         <!--/>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvAlergeno"
-            android:layout_gravity="center"
-            android:text="gdfagfdsgds"
-            android:textColor="@color/colorPrimaryDark"
-            android:gravity="center"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imAlergeno"
             android:scaleType="centerCrop" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvAlergeno"
+        android:layout_gravity="center"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
     <!--android:src="@drawable/gluten"-->
 
 
