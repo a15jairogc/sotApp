@@ -1,17 +1,19 @@
 package com.example.root.alergenos.clase;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.ImageView;
 
 /**
  * Created by jairo on 2/06/16.
  */
-public class Alergenos {
+public class Alergenos implements Parcelable{
 
     public int id;
     public String nombre;
     public int img;
     public int imgDesc;
-    public int descripcion;
+    public String descripcion;
 
     public Alergenos(String nombre) {
         this.nombre = nombre;
@@ -20,7 +22,7 @@ public class Alergenos {
     public Alergenos() {
     }
 
-    public Alergenos(int id, String nombre, int img, int imgDesc, int descripcion) {
+    public Alergenos(int id, String nombre, int img, int imgDesc, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.img = img;
@@ -38,11 +40,45 @@ public class Alergenos {
         this.img = img;
     }
 
-    public Alergenos(int id, int imgDesc, int descripcion) {
+    public Alergenos(int id, int imgDesc, String descripcion) {
         this.id = id;
         this.imgDesc = imgDesc;
         this.descripcion = descripcion;
     }
+
+    protected Alergenos(Parcel in) {
+        id = in.readInt();
+        nombre = in.readString();
+        img = in.readInt();
+        imgDesc = in.readInt();
+        descripcion = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nombre);
+        dest.writeInt(img);
+        dest.writeInt(imgDesc);
+        dest.writeString(descripcion);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Alergenos> CREATOR = new Creator<Alergenos>() {
+        @Override
+        public Alergenos createFromParcel(Parcel in) {
+            return new Alergenos(in);
+        }
+
+        @Override
+        public Alergenos[] newArray(int size) {
+            return new Alergenos[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -76,11 +112,13 @@ public class Alergenos {
         this.imgDesc = imgDesc;
     }
 
-    public int getDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(int descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
 }
