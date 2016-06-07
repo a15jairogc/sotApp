@@ -127,10 +127,11 @@ public class MainActivity extends AppCompatActivity
         ft.commit();
     }
 
-    public void goToFragAlergenosDesc(){
+    public void goToFragAlergenosDesc(Alergenos alergenos){
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.addToBackStack("alergenos");
-        ft.replace(R.id.fragment_container,new FragmentDescAlergenos(), FragmentAlergeno.TAG);
+        ft.replace(R.id.fragment_container,FragmentDescAlergenos.newInstance(alergenos), FragmentAlergeno.TAG);
         ft.commit();
     }
     public void goToFragMenuEntrenos(){
