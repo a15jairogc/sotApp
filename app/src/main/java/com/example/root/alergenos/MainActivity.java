@@ -1,9 +1,12 @@
 package com.example.root.alergenos;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,17 +16,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.root.alergenos.adaptador.AdaptadorAlergeno;
 import com.example.root.alergenos.clase.Alergenos;
+import com.squareup.picasso.Picasso;
 
+import java.security.Principal;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    ImageView imageView;
+    private static long back_pressed;
+    MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +39,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mainActivity=this;
+        imageView = (ImageView) findViewById(R.id.fotoPortada);
+        Picasso.with(getApplicationContext()).load(R.drawable.main).into(imageView);
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -56,11 +66,32 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity);
+            builder.setMessage("Desea salir de la aplicación?")
+                    .setCancelable(false)
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+//                            Intent intent = new Intent(mainActivity, MainActivity.class);
+//                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            intent.putExtra("ExitMe", true);
+//                            startActivity(intent);
+                            mainActivity.finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+        else {
+            mainActivity.goToFragInicio();
+            getSupportActionBar().setTitle("Inicio");
+            back_pressed = System.currentTimeMillis();
         }
     }
 
@@ -93,7 +124,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_carta) {
-            // Handle the camera action
+            item.setChecked(true);
+            getSupportActionBar().setTitle(item.getTitle());
+            goToFragCarta();
         } else if (id == R.id.nav_alergenos) {
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
@@ -134,16 +167,16 @@ public class MainActivity extends AppCompatActivity
         ft.replace(R.id.fragment_container,FragmentDescAlergenos.newInstance(alergenos), FragmentAlergeno.TAG);
         ft.commit();
     }
-    public void goToFragMenuEntrenos(){
+
+    public void goToFragCarta(){
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.addToBackStack("carta");
+        ft.replace(R.id.fragment_container,new FragmentCarta(), FragmentAlergeno.TAG);
+        ft.commit();
 
     }
-    public void goToFragMenuMultas(){
 
-    }
-    public void goToFragMenuForo(){
 
-    }
-    public void goToFragFichaJugador(){
 
-    }
 }
