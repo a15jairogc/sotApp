@@ -1,5 +1,7 @@
 package com.example.root.alergenos.clase;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.CalendarView;
 
 import com.j256.ormlite.field.DatabaseField;
@@ -12,7 +14,7 @@ import java.util.Collection;
  * Created by jairo on 8/06/16.
  */
 @DatabaseTable(tableName = "tipoProducto")
-public class TipoProducto {
+public class TipoProducto implements Parcelable {
 
     @DatabaseField(generatedId = true)
     public int id;
@@ -77,4 +79,38 @@ public class TipoProducto {
                 ", productos=" + productos +
                 '}';
     }
+
+
+
+
+    protected TipoProducto(Parcel in) {
+        name = in.readString();
+        img = in.readInt();
+        productos = (Collection) in.readValue(Collection.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeInt(img);
+        dest.writeValue(productos);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<TipoProducto> CREATOR = new Parcelable.Creator<TipoProducto>() {
+        @Override
+        public TipoProducto createFromParcel(Parcel in) {
+            return new TipoProducto(in);
+        }
+
+        @Override
+        public TipoProducto[] newArray(int size) {
+            return new TipoProducto[size];
+        }
+    };
 }

@@ -1,17 +1,17 @@
 package com.example.root.alergenos;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.root.alergenos.adaptador.AdaptadorAlergeno;
+import com.example.root.alergenos.Preferences.AlergenosApplication;
+import com.example.root.alergenos.adaptador.AdaptadorCarta;
 import com.example.root.alergenos.adaptador.AdaptadorTipo;
 import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.clase.Producto;
@@ -19,10 +19,7 @@ import com.example.root.alergenos.clase.TipoProducto;
 import com.example.root.alergenos.database.PersistenceHelper;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
-import java.lang.reflect.Array;
-import java.security.Principal;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jairo on 8/06/16.
@@ -59,7 +56,7 @@ public class FragmentCarta extends Fragment{
 
 
     public void insertarDatos(){
-        productoArrayList.add(new Producto(1, "Filete", 10));
+        productoArrayList.add(new Producto(1, "Filete", R.drawable.filete, 10));
         tipoProductoArrayList = new ArrayList<>();
         TipoProducto tipoProducto = new TipoProducto(1, "Entrantes",R.drawable.entrantes,productoArrayList);
         TipoProducto tipoProducto1 = new TipoProducto(2, "Pescados",R.drawable.pescados,productoArrayList);
@@ -83,8 +80,16 @@ public class FragmentCarta extends Fragment{
         adaptadorTipo = new AdaptadorTipo(mainActivity,tipoProductoArrayList);
         listViewTipo.setAdapter(adaptadorTipo);
 
+        listViewTipo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "Seleccionaste : "+tipoProductoArrayList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                AlergenosApplication.helper.setImgDesc(tipoProductoArrayList.get(position).getImg());
+                mainActivity.goToFragDescCarta((TipoProducto) adaptadorTipo.getItem(position));
+
+            }
+        });
+
     }
-
-
 
 }

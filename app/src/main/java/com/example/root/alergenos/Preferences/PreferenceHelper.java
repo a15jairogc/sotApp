@@ -48,13 +48,13 @@ public class PreferenceHelper  {
     }
 
     public boolean getInicio() {
-        return sharedPreferences.getBoolean("id", true);
+        return sharedPreferences.getBoolean("inicio", true);
     }
 
 
     public void setInicio(boolean flag) {
         SharedPreferences.Editor  editor = sharedPreferences.edit();
-        editor.putBoolean("img", flag);
+        editor.putBoolean("inicio", flag);
         editor.commit();
     }
 

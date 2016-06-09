@@ -2,6 +2,7 @@ package com.example.root.alergenos.database;
 
 
 
+import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.clase.Producto;
 import com.example.root.alergenos.clase.TipoProducto;
 
@@ -18,7 +19,8 @@ public class ModelProvider {
 //                Payment.class,
 //                Products.class
                 Producto.class,
-                TipoProducto.class
+                TipoProducto.class,
+                Alergenos.class
         };
         return Arrays.asList(models);
     }

@@ -21,6 +21,7 @@ import android.widget.ListView;
 
 import com.example.root.alergenos.adaptador.AdaptadorAlergeno;
 import com.example.root.alergenos.clase.Alergenos;
+import com.example.root.alergenos.clase.TipoProducto;
 import com.squareup.picasso.Picasso;
 
 import java.security.Principal;
@@ -177,6 +178,13 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void goToFragDescCarta(TipoProducto a){
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.addToBackStack("cartadesc");
+        ft.replace(R.id.fragment_container,new FragmentDescCarta().newInstance(a) ,FragmentAlergeno.TAG);
+        ft.commit();
+
+    }
 
 }
