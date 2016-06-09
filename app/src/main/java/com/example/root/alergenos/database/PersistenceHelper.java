@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.clase.Producto;
 import com.example.root.alergenos.clase.TipoProducto;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
@@ -32,9 +33,8 @@ public class PersistenceHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         for(Class model: models) {
             try {
-//                TableUtils.createTable(connectionSource, model);
-                TableUtils.createTable(connectionSource, Producto.class);
-                TableUtils.createTable(connectionSource, TipoProducto.class);
+            TableUtils.createTable(connectionSource, model);
+
 
 
 

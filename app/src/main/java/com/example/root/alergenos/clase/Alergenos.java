@@ -2,6 +2,9 @@ package com.example.root.alergenos.clase;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 //package com.example.root.alergenos.clase;
 //
 //import android.os.Parcel;
@@ -126,12 +129,19 @@ import android.os.Parcelable;
 //
 //
 //}
+@DatabaseTable(tableName = "alergenos")
+
 public class Alergenos implements Parcelable {
 
+    @DatabaseField(generatedId = true)
     public int id;
+    @DatabaseField
     public String nombre;
+    @DatabaseField
     public int img;
+    @DatabaseField
     public int imgDesc;
+    @DatabaseField
     public String descripcion;
 
     protected Alergenos(Parcel in) {
@@ -140,6 +150,10 @@ public class Alergenos implements Parcelable {
         img = in.readInt();
         imgDesc = in.readInt();
         descripcion = in.readString();
+    }
+
+
+    public Alergenos() {
     }
 
     public Alergenos(int id, String nombre, int img, int imgDesc, String descripcion) {

@@ -6,8 +6,12 @@ import com.example.root.alergenos.BaseActivity;
 import com.example.root.alergenos.R;
 import com.example.root.alergenos.clase.Producto;
 import com.example.root.alergenos.clase.TipoProducto;
+import com.example.root.alergenos.database.ModelProvider;
+import com.example.root.alergenos.database.PersistenceHelper;
+import com.j256.ormlite.table.TableUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jairo on 6/06/16.
@@ -15,14 +19,16 @@ import java.util.ArrayList;
 public class AlergenosApplication extends Application {
 
     public static PreferenceHelper helper;
+    public PersistenceHelper persistenceHelper;
     public ArrayList<Producto> mArraylistProdEntrantes;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        persistenceHelper = new PersistenceHelper(getApplicationContext(), ModelProvider.getModels());
         helper = new PreferenceHelper(getApplicationContext());
         if (helper.getInicio()){
-            helper.setInicio(true);
+            helper.setInicio(false);
             mArraylistProdEntrantes = new ArrayList<>();
            // Producto producto = new Producto();
 //            producto.id = 13243;
@@ -64,13 +70,14 @@ public class AlergenosApplication extends Application {
 
 
 
+
             TipoProducto tipoProducto = new TipoProducto(1,"Entrantes",R.drawable.filete,mArraylistProdEntrantes);
-
-            for (int i=0; i < mArraylistProdEntrantes.size(); i++ ) {
+            int max = mArraylistProdEntrantes.size();
+            for (int i=0; i < max; i++ ) {
                 tipoProducto.productos.add(mArraylistProdEntrantes.get(i));
-               // getPersistenceHelper().getRuntimeExceptionDao(TipoProducto.class).createOrUpdate(tipoProducto);
-
             }
+            persistenceHelper.getRuntimeExceptionDao(TipoProducto.class).createOrUpdate(tipoProducto);
+
 
         }
 
