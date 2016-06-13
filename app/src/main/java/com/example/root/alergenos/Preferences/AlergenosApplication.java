@@ -30,7 +30,7 @@ public class AlergenosApplication extends Application {
         if (helper.getInicio()){
             helper.setInicio(false);
             mArraylistProdEntrantes = new ArrayList<>();
-           // Producto producto = new Producto();
+            // Producto producto = new Producto();
 //            producto.id = 13243;
 //            producto.nombre = "Filete";
 //            producto.img = R.drawable.filete;
@@ -76,7 +76,7 @@ public class AlergenosApplication extends Application {
             for (int i=0; i < max; i++ ) {
                 tipoProducto.productos.add(mArraylistProdEntrantes.get(i));
             }
-            persistenceHelper.getRuntimeExceptionDao(TipoProducto.class).createOrUpdate(tipoProducto);
+            persistenceHelper.getRuntimeExceptionDao(TipoProducto.class).create(tipoProducto);
 
 
         }

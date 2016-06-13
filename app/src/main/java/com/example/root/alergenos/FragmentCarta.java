@@ -47,9 +47,9 @@ public class FragmentCarta extends Fragment{
     }
 
     private PersistenceHelper getHelper() {
-            if (persistenceHelper == null) {
-                persistenceHelper = OpenHelperManager.getHelper(getContext(),PersistenceHelper.class);
-            }
+        if (persistenceHelper == null) {
+            persistenceHelper = OpenHelperManager.getHelper(getContext(),PersistenceHelper.class);
+        }
         return persistenceHelper;
     }
 

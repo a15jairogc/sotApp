@@ -9,14 +9,20 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.root.alergenos.Preferences.AlergenosApplication;
 import com.example.root.alergenos.adaptador.AdaptadorCarta;
 import com.example.root.alergenos.clase.Alergenos;
 import com.example.root.alergenos.clase.Producto;
 import com.example.root.alergenos.clase.TipoProducto;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.support.ConnectionSource;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jairo on 9/06/16.
@@ -34,10 +40,10 @@ public class FragmentDescCarta extends Fragment {
         View view = inflater.inflate(R.layout.fragment_desc_carta, container, false);
         listViewAlergeno= (ListView) view.findViewById(R.id.listaCarta);
         mainActivity = (MainActivity) getActivity();
-
         listViewAlergeno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 AlergenosApplication.helper.getInicio();
                 tipoProductoArrayList = new ArrayList<>();
                 AdaptadorCarta adaptadorCarta = new AdaptadorCarta(mainActivity,tipoProductoArrayList);
