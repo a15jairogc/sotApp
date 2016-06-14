@@ -47,7 +47,7 @@ public class AdaptadorTipo extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
+    public TipoProducto getItem(int position) {
         return tipoProductoList.get(position);
     }
 

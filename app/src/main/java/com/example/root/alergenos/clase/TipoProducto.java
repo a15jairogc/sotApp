@@ -31,8 +31,12 @@ public class TipoProducto implements Parcelable {
     public TipoProducto() {
     }
 
-    public TipoProducto(int id, String name, int img, Collection<Producto> productos) {
-        this.id = id;
+    public TipoProducto(String name, int img) {
+        this.name = name;
+        this.img = img;
+    }
+
+    public TipoProducto(String name, int img, Collection<Producto> productos) {
         this.name = name;
         this.img = img;
         this.productos = productos;

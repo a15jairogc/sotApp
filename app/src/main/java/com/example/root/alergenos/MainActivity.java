@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         mainActivity=this;
         imageView = (ImageView) findViewById(R.id.fotoPortada);
-        Picasso.with(getApplicationContext()).load(R.drawable.main).into(imageView);
+        Picasso.with(getApplicationContext()).load(R.drawable.maint).into(imageView);
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -178,11 +178,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void goToFragDescCarta(TipoProducto a){
-
+    public void goToFragDescCarta(int id){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.addToBackStack("cartadesc");
-        ft.replace(R.id.fragment_container,new FragmentDescCarta().newInstance(a) ,FragmentAlergeno.TAG);
+        ft.replace(R.id.fragment_container, FragmentDescCarta.newInstance(id) ,FragmentAlergeno.TAG);
         ft.commit();
 
     }

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.root.alergenos"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -31,6 +31,8 @@ dependencies {
     compile 'com.ms-square:expandableTextView:0.1.4'
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.clans:fab:1.6.4'
+
 
 
 }

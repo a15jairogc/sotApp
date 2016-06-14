@@ -25,7 +25,7 @@ public class AdaptadorCarta extends BaseAdapter{
     private Context context;
     private List<Producto> tipoProductoList;
     private ArrayList<Integer> listImages = new ArrayList<>();
-    TipoProducto mTipoProducto;
+    Producto mProducto;
 
     public AdaptadorCarta(Context context, List<Producto> tipoProductoList){
         this.context = context;
@@ -77,7 +77,7 @@ public class AdaptadorCarta extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        mTipoProducto = (TipoProducto) getItem(position);
+        mProducto = (Producto) getItem(position);
 
 
         //holder.nombreTipo.setText(mTipoProducto.getName());
@@ -88,15 +88,12 @@ public class AdaptadorCarta extends BaseAdapter{
         //Picasso.with(context).load(mTipoProducto.getImg()).resize(360,180).into(holder.imgTipo);
 
 //        holder.imgTipo.setImageResource(mTipoProducto.getImg());
-        Collection<Producto> productos = mTipoProducto.getProductos();
 
 
-        for (Producto producto: productos
-             ) {
-            holder.nombreTipo.setText(producto.getNombre());
-            Picasso.with(context).load(producto.getImg()).resize(360,180).into(holder.imgTipo);
+            holder.nombreTipo.setText(mProducto.getNombre());
+            Picasso.with(context).load(mProducto.getImg()).resize(360,180).into(holder.imgTipo);
 
-        }
+
 
         return convertView;
     }

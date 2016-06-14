@@ -106,11 +106,17 @@ public class Producto implements Parcelable {
     public Producto() {
     }
 
-    public Producto(int id, String nombre, double precio, int img ) {
-        this.id = id;
+    public Producto(String nombre, double precio, int img ) {
         this.nombre = nombre;
         this.precio = precio;
         this.img = img;
+    }
+
+    public Producto( String nombre, double precio ,int img ,  TipoProducto tipoProducto) {
+        this.img = img;
+        this.tipoProducto = tipoProducto;
+        this.precio = precio;
+        this.nombre = nombre;
     }
 
     public int getId() {

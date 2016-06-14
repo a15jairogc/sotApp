@@ -36,24 +36,20 @@ public class AlergenosApplication extends Application {
 //            producto.img = R.drawable.filete;
 //            producto.precio = 8;
 
-            Producto caldo = new Producto();
-            caldo.id = 1;
-            caldo.nombre = "Caldo Gallego";
-            caldo.img = R.drawable.caldo;
-            caldo.precio = 3.7;
-            Producto ensalada = new Producto(2,"Ensalada",3.3,R.drawable.ensalada);
-            Producto ensaladam = new Producto(3,"Ensalada Mixta",5.8,R.drawable.ensaladam);
-            Producto ensaladap = new Producto(4,"Ensalada Primavera",5.8,R.drawable.ensaladap);
-            Producto ensaladas = new Producto(5,"Ensalada Sotavento",7.8,R.drawable.ensaladas);
-            Producto pate = new Producto(6,"Pate de Mejillones",7.5,R.drawable.pate);
-            Producto jamons = new Producto(7,"Jamon Serrano",5.5,R.drawable.jamons);
-            Producto pulpof = new Producto(8,"Pulpo a feira",12,R.drawable.pulpof);
-            Producto pulpog = new Producto(9,"Pulpo a la Gallega",12.5,R.drawable.pulpog);
-            Producto calamares = new Producto(10,"Calamares",8.8,R.drawable.calamares);
-            Producto chipirones = new Producto(11,"Chipirones",8.3,R.drawable.chipirones);
-            Producto pimientos = new Producto(12,"Pimientos de Padrón",4.4,R.drawable.pimientos);
-            Producto esparragos = new Producto(13,"Espárragos con mahonesa",5,R.drawable.esparragos);
-
+            Producto caldo = new Producto("Caldo Gallego",3.7, R.drawable.caldo);
+            Producto ensalada = new Producto("Ensalada",3.3,R.drawable.ensalada);
+            Producto ensaladam = new Producto("Ensalada Mixta",5.8,R.drawable.ensaladam);
+            Producto ensaladap = new Producto("Ensalada Primavera",5.8,R.drawable.ensaladap);
+            Producto ensaladas = new Producto("Ensalada Sotavento",7.8,R.drawable.ensaladas);
+            Producto pate = new Producto("Pate de Mejillones",7.5,R.drawable.pate);
+            Producto jamons = new Producto("Jamon Serrano",5.5,R.drawable.jamons);
+            Producto pulpof = new Producto("Pulpo a feira",12,R.drawable.pulpof);
+            Producto pulpog = new Producto("Pulpo a la Gallega",12.5,R.drawable.pulpog);
+            Producto calamares = new Producto("Calamares",8.8,R.drawable.calamares);
+            Producto chipirones = new Producto("Chipirones",8.3,R.drawable.chipirones);
+            Producto pimientos = new Producto("Pimientos de Padrón",4.4,R.drawable.pimientos);
+            Producto esparragos = new Producto("Espárragos con mahonesa",5,R.drawable.esparragos);
+//test
             mArraylistProdEntrantes.add(caldo);
             mArraylistProdEntrantes.add(ensalada);
             mArraylistProdEntrantes.add(ensaladam);
@@ -67,11 +63,12 @@ public class AlergenosApplication extends Application {
             mArraylistProdEntrantes.add(chipirones);
             mArraylistProdEntrantes.add(pimientos);
             mArraylistProdEntrantes.add(esparragos);
+            //test
 
 
 
 
-            TipoProducto tipoProducto = new TipoProducto(1,"Entrantes",R.drawable.filete,mArraylistProdEntrantes);
+            TipoProducto tipoProducto = new TipoProducto("Entrantes",R.drawable.filete,mArraylistProdEntrantes);
             int max = mArraylistProdEntrantes.size();
             for (int i=0; i < max; i++ ) {
                 tipoProducto.productos.add(mArraylistProdEntrantes.get(i));
