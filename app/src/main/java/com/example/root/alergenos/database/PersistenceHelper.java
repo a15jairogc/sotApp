@@ -173,7 +173,7 @@ public class PersistenceHelper extends OrmLiteSqliteOpenHelper {
             daoP.create(bonito);
             daoP.create(lenguado);
             daoP.create(rapepl);
-            daoP.create(lenguado);
+            daoP.create(rapesv);
 
 
         } catch (SQLException e) {
